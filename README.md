@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This is My cars website [Create React App](https://assignment12-2d5f4.firebaseapp.com/).
+This is My cars website [Cars Home](https://assignment12-2d5f4.firebaseapp.com/).
 
 * Created with react, node, firebase and mongodb
 * authenication for admin and user
