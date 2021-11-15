@@ -16,6 +16,8 @@ const LogIn = () => {
     const location = useLocation();
     const history = useHistory();
 
+    
+
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -28,7 +30,7 @@ const LogIn = () => {
     const handleLogIn = e => {
 
         loginUser(loginData.email, loginData.password, location, history);
-
+       
         e.preventDefault();
     }
     return (
