@@ -28,6 +28,9 @@ const AllOrders = () => {
     };
 
 
+    
+
+
     // Delete Order
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure want to delete');

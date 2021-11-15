@@ -61,7 +61,7 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <Link style={{ textDecoration: 'none' }} to="/"><Button className=" bg-dark my-2 text-light">Home</Button></Link>
-
+            {admin}
             {!admin && <Box>
                 <Link style={{ textDecoration: 'none' }} to={`${url}/addReview`}><Button className="bg-dark text-light my-2">Review</Button></Link>
                 <br />
@@ -70,7 +70,7 @@ function Dashboard(props) {
                 <Link style={{ textDecoration: 'none' }} to={`${url}/pay`}><Button className="bg-dark text-light my-2">Pay</Button></Link>
 
             </Box>}
-            {admin && <Box >
+            {admin && <Box>
                 <Link style={{ textDecoration: 'none' }} to={`${url}/makeAdmin`}><Button className="text-center my-2 bg-dark text-light">Make Admin</Button></Link>
                 <Link style={{ textDecoration: 'none' }} to={`${url}/addProducts`}><Button className="my-2 bg-dark text-light">Add Products</Button></Link>
                 <Link style={{ textDecoration: 'none' }} to={`${url}/allOrders`}><Button className="my-2 bg-dark text-light">Manage All Orders</Button></Link>
