@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.form-switch {
+    padding-left: 0 !important;
+}
+
+.banner {
+    background-image: url('../../../images/home-banner.jpg');
+    height: 90vh;
+    max-width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    
+}
+.span-color{
+    color:gold;
+}
+
+/* News Section  */
+.news-header{
+    color: #13287D;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1.25;
+    margin-top: 30px;
+    margin-right: 45px;
+}
+.news-subHeader{
+    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+    color: #279e64;
+    text-transform: capitalize;
+    /* text-align: center; */
+    margin-left: -30px;
+}
+.news-card{
+    -webkit-box-shadow: 1px 1px 6px 5px rgba(0,0,0,0.74); 
+    box-shadow: 1px 1px 6px 5px rgba(0,0,0,0.74);
+    margin-top: 50px;
+    
+}
+.card-img{
+    height: 300px;
+}
+.read-more{
+    text-decoration: none;
+    color: #279e64;
+    font-size: 20px;
+}
+
+
+.repair_home{
+    padding: 15px;
+    background-color: #441919;
+    /* color: orange; */
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+}
+

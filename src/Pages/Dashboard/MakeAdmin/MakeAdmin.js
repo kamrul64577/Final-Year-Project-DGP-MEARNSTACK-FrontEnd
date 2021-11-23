@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     const handleAdminSubmit = e => {
         const user = { email };
 
-        fetch('https://desolate-beyond-74023.herokuapp.com/users/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
 
@@ -34,22 +34,22 @@ const MakeAdmin = () => {
         e.preventDefault();
     }
     return (
-        <div>
-            <h2>Make an Admin</h2>
+        <div className="pt-5 ps-5">
+            <h2 className="pt-5">নতুন  এডমিন যুক্ত করুন </h2>
             <form onSubmit={handleAdminSubmit}>
                 <TextField
 
                     sx={{ width: '75%', m: 1 }}
                     onBlur={handleOnBlur}
-                    label="Email"
+                    label="ইমেইল "
                     name="email"
                     type="email"
                     variant="standard"
                 />
-                <Button type="submit" variant="contained">Make Admin</Button>
+                <Button type="submit" variant="contained">এডমিন যুক্ত করুন</Button>
             </form>
             {
-                success && <Alert severity="success">Made admin succesfully!</Alert>
+                success && <Alert severity="success">সফলভাবে  এডমিন যুক্ত হয়েছে</Alert>
 
             }
         </div>

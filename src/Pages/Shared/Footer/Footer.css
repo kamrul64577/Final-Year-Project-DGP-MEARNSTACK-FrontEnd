@@ -1,0 +1,24 @@
+.footer{
+    background-image: url('../../../images/footer-bg.png');
+    background-color: #E8FCFA;
+    padding-top: 90px;
+}
+.fab{
+    /* background-color: #6acece; */
+    color: white;
+    height: 40px;
+    width:40px;
+    border-radius: 50%;
+    margin-right: 8px;
+    padding: 12px;
+    background-color: cadetblue;
+    /* font-size: 20px; */
+    transition: 2s ease all;
+}
+.fa-facebook-f{
+    padding-left: 15px;
+}
+.fab:hover{
+    transform: rotate(360deg);
+    border: 4px solid crimson;
+}

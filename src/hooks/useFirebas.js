@@ -10,7 +10,9 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const [admin, setAdmin] = useState(false);
+    const [userType, setUserType] = useState('');
+    // const [admin, setAdmin] = useState(false);
+    // const [journalist, setJournalist] = useState(false);
     const [token, setToken] = useState('');
     const auth = getAuth();
 
@@ -108,7 +110,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName }
-        fetch('https://desolate-beyond-74023.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -117,12 +119,18 @@ const useFirebase = () => {
         })
             .then()
     }
-
+  
     useEffect(() => {
-        fetch(`https://desolate-beyond-74023.herokuapp.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
+            .then(data => setUserType(data))
+    },[user.email])
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/users/${user.email}`)
+    //         .then(res => res.json())
+    //         .then(data => setJournalist(data.journalist))
+    // }, [user.email])
 
 
     // User Logout
@@ -144,9 +152,11 @@ const useFirebase = () => {
         siginWithGoogle,
         registerUser,
         loginUser,
-        admin,
+        // admin,
         token,
-        logOut,
+        userType,
+        // journalist,
+        logOut
 
     }
 

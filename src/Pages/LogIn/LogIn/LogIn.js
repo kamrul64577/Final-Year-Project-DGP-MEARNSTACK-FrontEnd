@@ -1,12 +1,13 @@
 import { Alert, Button, Card, CardContent, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
+import { Link, NavLink, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 
-
+import './Login.css';
 
 const LogIn = () => {
 
@@ -34,66 +35,41 @@ const LogIn = () => {
         e.preventDefault();
     }
     return (
-        <div style={{ backgroundColor: '#F7F7F7' }}>
+        <>
             <Navigation></Navigation>
 
-            <Box>
-                <Card style={{ backgroundColor: '#fff', width: '65%', margin: '30px auto', height: '75vh' }}>
-                    <CardContent>
-                        <Container>
-                            <Grid container spacing={2}>
-                                <Grid item xs={12} sm={12} md={12} style={{ textAlign: 'center', paddingTop: '100px' }}>
-                                    <Typography variant="h4" gutterBottom sx={{}}>
-                                        Login
-                                    </Typography>
-                                    <form onSubmit={handleLogIn}>
-                                        <TextField
-                                            onChange={handleOnChange}
-                                            sx={{ width: '50%', m: 1 }}
-                                            id="standard-basic"
-                                            label="Email"
-                                            name="email"
-                                            type="email"
-                                            variant="standard"
-                                        />
+            <div className="login">
+                <div className="w-25 py-5  mx-auto ">
+                    <Card className="mt-5">
+                        <div className="card-bg">
+                            <h2 className="text-center mb-4">লগইন </h2>
 
-                                        <TextField
-                                            onChange={handleOnChange}
-                                            sx={{ width: '50%', m: 1 }}
-                                            id="standard-basic"
-                                            label="Password"
-                                            variant="standard"
-                                            type="password"
-                                            name="password"
-                                        />
-                                        <Button variant="contained" type="submit" sx={{ width: '50%', marginLeft: '8px', m: 1, borderRadius: '8%' }}>Login</Button>
-                                        <br />
-                                        <NavLink to="/register" style={{ textDecoration: 'none', marginLeft: '10px' }}>New user?Please Register.</NavLink>
-                                    </form>
-                                    {
-                                        isLoading && <CircularProgress style={{ marginLeft: "200px", marginTop: '100px' }} />
-                                    }
-                                    {
-                                        user?.email && <Alert severity="success">Congratulation you are login succesfully!</Alert>
+                            {authError && <Alert variant="danger">{authError}</Alert>}
+                            <Form onSubmit={handleLogIn}>
+                                <Form.Group id="email">
+                                    <Form.Label>ইমেইল</Form.Label>
+                                    <Form.Control type="email" name="email" onChange={handleOnChange} required />
+                                </Form.Group>
+                                <Form.Group id="password">
+                                    <Form.Label>পাসওয়ার্ড</Form.Label>
+                                    <Form.Control type="password" name="password" onChange={handleOnChange} required />
+                                </Form.Group>
 
-                                    }
-                                    {
-                                        authError && <Alert variant="outlined" severity="error">
-                                            {authError}
-                                        </Alert>
-                                    }
-                                </Grid>
-
-
-                            </Grid>
-                        </Container>
-                    </CardContent>
-
-                </Card>
-            </Box>
+                                <Button className="w-100 text-center pb-0 my-3 bg-success text-light" type="submit"><h5>লগইন করুন</h5></Button>
+                            </Form>
+                            <div className="w-100 text-center mt-3 forgot-password-div">
+                                <Link className="forgot-password" to="/forgot-password">পাসওয়ার্ড ভুলে গেছেন? </Link>
+                            </div>
+                        </div>
+                    </Card>
+                    <div className="w-100 text-center mt-3 signup-bg">
+                        নতুন একাউন্ট প্রয়োজন?  <Link className="signup-link" to="/register">রেজিস্ট্রার করুন</Link>
+                    </div>
+                </div>
+            </div>
 
             <Footer></Footer>
-        </div>
+        </>
     );
 };
 

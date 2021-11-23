@@ -1,103 +1,50 @@
 import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { Button } from '@mui/material';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
+import './Navigation.css'
+import logo from "../../../images/freeLogo.png"
 const Navigation = () => {
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const { user, logOut } = useAuth()
 
 
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
     return (
-        <Box sx={{ flexGrow: 1 }} >
+        <>
+            <Navbar className="navbar" expand="lg">
+                <Container>
 
-            <AppBar position="static" style={{ backgroundColor: '#5d4037' }}>
-                <Toolbar>
+                    <Navbar.Brand href="#home" ><img className="img-fluid" src={logo} alt="logo" /></Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mx-auto nav-ul">
 
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Shome
-                    </Typography>
+                            <NavLink className="nav-li" activeStyle={{ color: "#FFFFFF" }} exact to="/">হোম</NavLink>
+                            <NavLink className="nav-li" activeStyle={{ color: "#FFFFFF" }} exact to="/services">সেবাসমূহ</NavLink>
+                            <NavLink className="nav-li" activeStyle={{ color: "#FFFFFF" }} exact to="/dashboard">ড্যাশবোর্ড </NavLink>
+                            <NavLink className="nav-li" activeStyle={{ color: "#FFFFFF" }} exact to="/event">স্পোর্টস ইভেন্ট </NavLink>
+                            <NavLink className="nav-li" activeStyle={{ color: "#FFFFFF" }} exact to="/about-us">আমাদের সম্পর্কে</NavLink>
+                            <NavLink className="nav-li" activeStyle={{ color: "#FFFFFF" }} exact to="/contact-us">যোগাযোগ</NavLink>
+                        </Nav>
+                        <Nav className=" ">
 
-                    <div>
-                        {isMobile ? (
-                            <>
-                                <IconButton
-                                    size="large"
-                                    edge="start"
-                                    color="inherit"
-                                    aria-label="menu"
-                                    sx={{ mr: 2, }}
-                                    onClick={handleMenu}
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                                <Menu
-                                    id="menu-appbar"
-                                    anchorEl={anchorEl}
-                                    anchorOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    open={Boolean(anchorEl)}
-                                    onClose={handleClose}
-                                >
-                                    <MenuItem onClick={handleClose}><NavLink style={{ textDecoration: 'none' }} to="/home">Home</NavLink></MenuItem>
+                            {user.email && <Button className="text-light  " onClick={logOut}><h6>লগআউট</h6></Button>}
+                            {!user.email && <NavLink className="nav-li sign-up" activeStyle={{ color: "#FFFFFF" }} exact to="/login" >লগইন</NavLink>}
+                            {/* <NavLink className="nav-li sign-up" activeStyle={{ color: "#FFFFFF" }} exact to="/userlogin">Login</NavLink>  */}
 
-                                    <MenuItem onClick={handleClose}> <NavLink style={{ textDecoration: 'none' }} to="/explore">Explore</NavLink></MenuItem>
-                                    <MenuItem onClick={handleClose}> <NavLink style={{ textDecoration: 'none' }} to="/dashboard">Dashboard</NavLink></MenuItem>
-                                    {user?.email ?
-                                        <Button onClick={logOut} color="inherit" >Logout</Button>
-                                        :
-                                        <MenuItem onClick={handleClose}> <NavLink style={{ textDecoration: 'none' }} to="/login" >Login</NavLink></MenuItem>
-                                    }
-                                </Menu> </>)
-                            : (
-                                <div>
-                                    <NavLink style={{ textDecoration: 'none', color: 'white', marginRight: '10px' }} to="/home">Home</NavLink>
+                            {/* <NavLink className="nav-li sign-up" activeStyle={{ color: "#FFFFFF" }} exact to="/userlogin">Logout</NavLink> */}
 
-                                    <NavLink style={{ textDecoration: 'none', color: 'white', marginRight: '10px' }} to="/explore">Explore</NavLink>
-                                    <NavLink style={{ textDecoration: 'none', color: 'white', marginRight: '10px' }} to="/dashboard">Dashboard</NavLink>
-                                    {user?.email ?
-                                        <Button onClick={logOut} color="inherit" >Logout</Button>
-                                        :
-                                        <NavLink style={{ textDecoration: 'none', color: 'white', marginRight: '10px' }} to="/login" >Login</NavLink>
-                                    }
-                                </div>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
 
-                            )
-
-                        }
-
-                    </div>
-
-                </Toolbar>
-            </AppBar>
-        </Box>
+            </Navbar>
+        </>
     );
 };
 

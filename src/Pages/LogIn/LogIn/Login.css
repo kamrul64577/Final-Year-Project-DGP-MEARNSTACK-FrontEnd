@@ -1,0 +1,29 @@
+.login{
+    background-image: url('../../../images/login.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 95vh;
+    background-position: center;
+}
+.card-bg{
+    background-color: #BFC8EA;
+    box-shadow: 10px -8px 9px 4px rgba(0,0,0,0.75);
+    padding: 20px;
+}
+.forgot-password-div{
+    background-color: black;
+    
+}
+.forgot-password{
+    color: #ffffff;
+    text-decoration: none;
+}
+.signup-bg{
+    background-color: #BF795E;
+    padding: 5px;
+    color: #ffffff;
+}
+.signup-link{
+    text-decoration: none;
+    color: #EEEEEE;
+}

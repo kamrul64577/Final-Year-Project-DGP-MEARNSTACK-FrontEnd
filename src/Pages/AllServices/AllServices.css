@@ -1,0 +1,10 @@
+.service{
+    background-color: #989898;
+}
+.request{
+    color: #FFFEEF;
+    text-decoration: none;
+    border: 1px solid grey;
+    padding: 10px;
+    background-color: darkgray;
+}
