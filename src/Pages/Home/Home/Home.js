@@ -5,7 +5,8 @@ import { Typewriter } from 'react-simple-typewriter'
 import { Card, CardGroup, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-
+import ScrollAnimation from 'react-animate-on-scroll';
+import LightSpeed from 'react-reveal/Zoom'; 
 
 import news1 from '../../../images/news-1.jpg'
 import news2 from '../../../images/news-2.jpg'
@@ -94,31 +95,35 @@ export default function Home() {
                                 <h1 className="news-header">আপডেট খবর পেতে আমাদের সাথে থাকুন </h1>
                                 <p className="news-subHeader">সাম্প্রতিক খবর </p>
                             </div>
-                               
-                                    {
-                                        news.map(ns =>
-                                            <div className="col-lg-6  h-50">
-                                            <div className="card-group ">
+                        
+                        {
+                            
+                                news.map(ns =>
+                                    <LightSpeed>
+                                    <div className="col-lg-6  h-50">
+                                        <div className="card-group ">
                                             <div className="news-card card">
                                                 <img className="card-img" variant="top" src={ns.image} />
-                                                        {/* <img src={`data:image/jpeg;base64,${ns.profilePic}`} alt="" /> */}
+                                                {/* <img src={`data:image/jpeg;base64,${ns.profilePic}`} alt="" /> */}
                                                 <div className="card-body">
-                                                            <div className="card-title"><h4>{ns.title}</h4></div>
+                                                    <div className="card-title"><h4>{ns.title}</h4></div>
                                                     <p className="card-text">
                                                         {ns.description.slice(1, 120)} .......
                                                     </p>
                                                     <Link to={`/newsDetails/${ns._id}`} className="read-more">আরো পড়ুন  </Link>
                                                 </div>
                                             </div>
-                                            </div>
-                                            </div>
-                                        )
-                                    }
-                               
-                            
-
+                                        </div>
+                                    </div>
+                                    </LightSpeed>
+                                )
+                                
+                            }
+                        
+                        
                         </div>
                     </div>
+                    
                 {/* </div> */}
             </section>
             <Footer></Footer>

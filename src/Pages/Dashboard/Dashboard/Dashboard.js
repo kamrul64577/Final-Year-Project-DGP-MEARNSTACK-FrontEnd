@@ -52,6 +52,8 @@ import ApplicationOfEvent from '../Event/ApplicationOfEvent/ApplicationOfEvent';
 import AddReliefSchedule from '../ManageReliefSchedule/AddReliefSchedule/AddReliefSchedule';
 import ViewReliefSchedule from '../ManageReliefSchedule/ViewReliefSchedule/ViewReliefSchedule';
 import ReliefSchedule from '../ReliefSchedule/ReliefSchedule';
+import NotFound from '../../NotFound/NotFound';
+import AdminRoute from '../../LogIn/AdminRoute/AdminRoute';
 
 
 const drawerWidth = 260;
@@ -114,7 +116,7 @@ export default function Dashboard() {
     const handleDrawerOpen = () => {
         setOpen(true);
     };
-    console.log(userType, user.email);
+    // console.log(userType, user.email);
     const handleDrawerClose = () => {
         setOpen(false);
     };
@@ -235,18 +237,18 @@ export default function Dashboard() {
                 <Route exact path={`${path}`}>
                     <DashboardHome></DashboardHome>
                 </Route >
-                <Route exact path={`${path}/makeAdmin`}>
+                <AdminRoute exact path={`${path}/makeAdmin`}>
                     <MakeAdmin></MakeAdmin>
-                </Route >
-                <Route exact path={`${path}/makeServiceOfficer`}>
+                </AdminRoute >
+                <AdminRoute exact path={`${path}/makeServiceOfficer`}>
                     <MakeServiceOfficer></MakeServiceOfficer>
-                </Route >
-                <Route exact path={`${path}/makeEventCoordinator`}>
+                </AdminRoute >
+                <AdminRoute exact path={`${path}/makeEventCoordinator`}>
                     <MakeEventCoordinator></MakeEventCoordinator>
-                </Route >
-                <Route exact path={`${path}/makeLocalJournalist`}>
+                </AdminRoute >
+                <AdminRoute exact path={`${path}/makeLocalJournalist`}>
                     <MakeLocalJournalist></MakeLocalJournalist>
-                </Route >
+                </AdminRoute >
                 <Route exact path={`${path}/addNewService`}>
                     <AddNewService></AddNewService>
                 </Route >

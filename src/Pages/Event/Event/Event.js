@@ -4,6 +4,7 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import './Event.css'
 import Axios from 'axios'
 import { Link } from 'react-router-dom';
+import Slide from 'react-reveal/Slide'; 
 const Event = () => {
     const [events, setEvent] = useState([]);
     useEffect(() => {
@@ -18,17 +19,20 @@ const Event = () => {
             {/* {events.map(evnt => evnt.event.eventName)} */}
             <section className="event">
                 <div class="leftBox">
+                    
                     <div class="content">
                         <h1>ইভেন্ট সম্পর্কে তথ্য</h1>
                         <p>এখানে বিভিন্ন ইভেন্ট সম্পর্কে তথ্য দেয়া আছে।
                             ইভেন্ট এর বর্ণনা দেয়া আছে এবং আগ্রহীরা বিভিন্ন ইভেন্ট এর জন্য আবেদন করতে পারবে।ইভেন্টের তারিখের ২ দিন আগে আবেদন করতে হবে |
                             ডান পাশে আবেদন করুন বাটন এ  ক্লিক করে ফরম পূরণ করে ইভেন্ট এ অংশগ্রহণ করবে।</p>
                     </div>
+                    
                 </div>
                 <div class="events">
                     <ul>
                        {
                            events.map(evnt => 
+                               <Slide right cascade>
                                <li>
                                    <div class="time">
                                        <h2>{evnt.event.eventDate}<br /><span>{evnt.event.eventMonth}</span></h2>
@@ -43,6 +47,7 @@ const Event = () => {
                                    </div>
                                    <div style={{ clear: 'both' }}></div>
                                </li>
+                               </Slide>
                             )
                        }
                        

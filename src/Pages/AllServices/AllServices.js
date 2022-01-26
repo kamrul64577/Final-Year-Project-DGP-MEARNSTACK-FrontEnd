@@ -5,7 +5,7 @@ import './AllServices.css'
 import { Link } from 'react-router-dom'
 import Navigation from '../Shared/Navigation/Navigation';
 import Footer from '../Shared/Footer/Footer';
-
+import Slide from 'react-reveal/Slide'; 
 export default function AllServices() {
     const [serviceList, setServiceList] = useState([]);
    
@@ -27,7 +27,7 @@ export default function AllServices() {
                         <div className="col-lg-12">
                             {serviceList.map((val, key) => {
                                 return <div>
-
+                                    <Slide bottom cascade>
                                     <div className=" my-5 ">
 
                                         <Card className="mx-4 bg-light" >
@@ -42,7 +42,7 @@ export default function AllServices() {
                                             </Card.Body>
                                         </Card>
                                     </div>
-
+                                    </Slide>
                                 </div>
                             })}
 
