@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import './RequestRepairing.css'
 const RequestRepairing = () => {
     const [requestRepairing, setRequestedRepairing] = useState([]);
@@ -21,7 +22,11 @@ const RequestRepairing = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('succesfully deleted');
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
                         const remainingRepairing = requestRepairing.filter(repair => repair._id !== id);
                         setRequestedRepairing(remainingRepairing);
                     }

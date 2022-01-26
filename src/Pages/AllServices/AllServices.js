@@ -34,10 +34,11 @@ export default function AllServices() {
                                             <Card.Header>{val.categories}</Card.Header>
                                             <Card.Body className="p-5">
                                                 <Card.Title className="fs-2">{val.name}</Card.Title>
-                                                <Card.Text><p className="mt-3 bg-dark text-white w-25 p-2">এই সার্ভিসেস কেন প্রয়োজন?</p>
+                                                <h2 className=" text-center ms-auto py-3 rounded-circle border-info w-50 border-bottom border-5">রেজিস্ট্রেশন ফি : {val.regFee} ৳</h2>
+                                                <Card.Text><p className="mt-3 rounded-pill bg-light border border-4 bg-gradient  w-25 p-2">এই সার্ভিসেস কেন প্রয়োজন?</p>
                                                     {val.description}
                                                 </Card.Text>
-                                                <Button variant="success">এই সেবাটির জন্য আবেদন করুন</Button>
+                                                <Button variant="success"><Link className="text-white text-decoration-none" to={`/serviceDetails/${val._id}`} >এই সেবাটির জন্য আবেদন করুন</Link></Button>
                                             </Card.Body>
                                         </Card>
                                     </div>

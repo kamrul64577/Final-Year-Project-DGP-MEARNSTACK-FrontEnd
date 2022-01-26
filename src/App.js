@@ -1,12 +1,10 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import AuthProvider from "./context/AuthProvider/AuthProvider";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
-import Explores from "./Pages/Explore/Explores/Explores";
 import Home from './Pages/Home/Home/Home';
 import LogIn from "./Pages/LogIn/LogIn/LogIn";
 import PrivateRoute from "./Pages/LogIn/PrivateRoute/PrivateRoute";
@@ -23,6 +21,9 @@ import NewsDetails from "./Pages/Home/NewsDetails/NewsDetails";
 import Event from "./Pages/Event/Event/Event";
 import RegisterForEvent from "./Pages/Event/RegisterForEvent/RegisterForEvent";
 import MaterialUIPickers from "./Pages/Dashboard/BirthDeathRegistration/MaterialUIPickers";
+import ServiceDetails from "./Pages/AllServices/ServiceDetails";
+import Success from "./Pages/AllServices/Success";
+import NotFound from "./Pages/NotFound/NotFound";
 function App() {
   return (
     <div>
@@ -51,6 +52,12 @@ function App() {
             <Route path="/newsDetails/:newsId">
               <NewsDetails></NewsDetails>
             </Route>
+            <PrivateRoute path="/serviceDetails/:serviceId">
+              <ServiceDetails></ServiceDetails>
+            </PrivateRoute>
+            <PrivateRoute exact path="/success/:id">
+              <Success></Success>
+            </PrivateRoute>
 
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
@@ -77,6 +84,9 @@ function App() {
             </PrivateRoute>
             
             
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
             
             
           </Switch>

@@ -1,10 +1,14 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ApplicationOfEvent = () => {
     const [event, setEvent] = useState([]);
-
+    const notify = () => toast.success("Sucessfully Deleted", {
+        
+    })
     useEffect(() => {
         fetch(`http://localhost:5000/registerEvent`)
             .then(res => res.json())
@@ -21,7 +25,7 @@ const ApplicationOfEvent = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('succesfully deleted');
+                        notify();
                         const remainingEvent = event.filter(event => event._id !== id);
                         setEvent(remainingEvent);
                     }
@@ -32,6 +36,7 @@ const ApplicationOfEvent = () => {
 
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <h1 className="text-center pb-2">আবেদনকৃত ইভেন্টসমূহ</h1>
             <div className="service-page">
                 <div className="container py-5 p-3 ">

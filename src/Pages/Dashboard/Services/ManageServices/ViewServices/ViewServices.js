@@ -1,7 +1,7 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import Swal from 'sweetalert2'
 const ViewServices = () => {
     const [services, setServices] = useState([]);
 
@@ -13,6 +13,7 @@ const ViewServices = () => {
 
     const handleDeleteService = id => {
         const proceed = window.confirm('Are you sure want to delete');
+        
         if (proceed) {
             const url = `http://localhost:5000/services/${id}`;
             fetch(url, {
@@ -21,7 +22,11 @@ const ViewServices = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('succesfully deleted');
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
                         const remainingServices = services.filter(service => service._id !== id);
                         setServices(remainingServices);
                     }
@@ -29,6 +34,7 @@ const ViewServices = () => {
         }
 
     }
+    
 
     return (
         <div>

@@ -1,6 +1,7 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const ViewDeathInfo = () => {
     const [death, setDeath] = useState([]);
@@ -21,7 +22,11 @@ const ViewDeathInfo = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('succesfully deleted');
+                        Swal.fire(
+                            'Successfully Deleted',
+                            'Your File has been Deleted',
+                            'success'
+                        )
                         const remainingdeath = death.filter(death => death._id !== id);
                         setDeath(remainingdeath);
                     }

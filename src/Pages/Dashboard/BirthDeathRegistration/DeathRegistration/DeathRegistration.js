@@ -5,6 +5,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Axios from 'axios';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import Swal from 'sweetalert2';
 
 const DeathRegistration = () => {
     const [value, setValue] = React.useState(new Date('2021-08-18'));
@@ -27,7 +28,11 @@ const DeathRegistration = () => {
             .then(() => {
                 console.log('succesfully Insert')
             });
-        alert('Death Registration successfull')
+        Swal.fire(
+            'Thank You For Registered Death',
+            'Your Death Registration Successful',
+            'success'
+        )
         e.preventDefault();
     }
     const handleChange = (newValue) => {

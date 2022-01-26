@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { useState } from 'react'
+import Swal from 'sweetalert2';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import './ApplyService.css'
@@ -21,7 +22,11 @@ export default function ApplyService() {
             .then(() => {
                 console.log('succesfully Insert')
             });
-        alert('thank you for your new Service request')
+        Swal.fire(
+            'Thank you for your new Service request',
+            'You have request new Services',
+            'success'
+        )
     }
     return (
         <>

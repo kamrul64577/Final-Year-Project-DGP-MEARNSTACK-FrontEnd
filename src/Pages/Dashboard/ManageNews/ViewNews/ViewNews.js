@@ -1,8 +1,10 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ViewNews = () => {
+    const notify = () => toast("Successfully Delete News");
     const [news, setNews] = useState([]);
 
     useEffect(() => {
@@ -21,7 +23,7 @@ const ViewNews = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('succesfully deleted');
+                        notify();
                         const remainingNews = news.filter(news => news._id !== id);
                         setNews(remainingNews);
                     }
@@ -32,6 +34,7 @@ const ViewNews = () => {
 
     return (
         <div>
+            <ToastContainer/>
             <h1 className="text-center pb-2">খবরসমূহ </h1>
             <div className="service-page">
                 <div className="container py-5 p-3 ">

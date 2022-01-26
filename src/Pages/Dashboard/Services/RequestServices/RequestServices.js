@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 const RequestServices = () => {
     const [requestServices, setRequestedService] = useState([]);
@@ -21,7 +22,11 @@ const RequestServices = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('succesfully deleted');
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
                         const remainingServices = requestServices.filter(service => service._id !== id);
                         setRequestedService(remainingServices);
                     }

@@ -2,7 +2,10 @@ import { Button, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Textarea from 'muicss/lib/react/textarea';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const UpdateNews = () => {
+    const notify = () => toast("Successfully Updated News");
     const { newsId } = useParams();
     const [news, setNews] = useState({});
 
@@ -45,7 +48,7 @@ const UpdateNews = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('Updated successfully')
+                    notify();
                     setNews({});
                 }
             })
@@ -56,8 +59,9 @@ const UpdateNews = () => {
 
     return (
         <div>
-            <h2>This is Update News Page</h2>
-            <h3>Title: {news.name}</h3>
+            <ToastContainer/>
+            <h1> নিউজ  আপডেট করুন </h1>
+            <h3></h3>
             <form onSubmit={handleUpdateNews}>
                 {/* <input type="text" onChange={handletitleChange} value={services.title || ''} />
                 <input type="text" onChange={handlePriceChange} value={services.price || ''} />
@@ -65,7 +69,7 @@ const UpdateNews = () => {
 
                 <TextField
                     onChange={handleTitleChange}
-                    sx={{ width: '50%', m: 1 }}
+                    sx={{ width: '50%', m: 1,p:3 }}
                     id="standard-basic"
                     value={news.title || ''}
                     type="text"
@@ -73,7 +77,7 @@ const UpdateNews = () => {
                 />
                 <TextField
                     onChange={handleImageChange}
-                    sx={{ width: '50%', m: 1 }}
+                    sx={{ width: '50%', m: 1, p: 3}}
                     id="standard-basic"
                     value={news.image || ''}
                     type="text"
@@ -82,13 +86,13 @@ const UpdateNews = () => {
                 <textarea
                     className="form-control"
                     onChange={handleDescriptionChange}
-                    style={{ width: '60%', m: 1 }}
+                    style={{ width: '60%', m: 1, p: 3 }}
                     id="standard-basic"
                     value={news.description || ''}
                     variant="standard"
                 />
 
-                <Button variant="contained" type="submit" sx={{ width: '50%', marginLeft: '8px', m: 1 }}>Update</Button>
+                <Button variant="contained" type="submit" sx={{ width: '50%', marginLeft: '8px', m: 1 }}>আপডেট</Button>
             </form>
         </div>
     );

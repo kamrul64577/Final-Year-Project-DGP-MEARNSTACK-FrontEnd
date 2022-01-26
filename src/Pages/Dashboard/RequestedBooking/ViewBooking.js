@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ViewBooking = () => {
     const [booking, setBooking] = useState([]);
-
+    const notify = () => toast("Booking Status Changed");
     useEffect(() => {
         fetch(`http://localhost:5000/booking`)
             .then(res => res.json())
@@ -28,7 +30,7 @@ const ViewBooking = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    alert('Bookin Status Changed')
+                    notify();
                 };
             })
     }
@@ -54,6 +56,7 @@ const ViewBooking = () => {
 
     return (
         <div>
+            <ToastContainer/>
             <h1 className="text-center pb-2">সকল বুকিং</h1>
             <div className="service-page">
                 <div className="container py-5 p-3 ">

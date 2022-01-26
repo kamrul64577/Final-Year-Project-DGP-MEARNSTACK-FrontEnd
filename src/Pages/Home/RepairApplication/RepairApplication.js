@@ -3,7 +3,10 @@ import React, { useState } from 'react'
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import './RepairApplication.css'
+import Swal from 'sweetalert2'
+import { useHistory, useLocation, useParams } from 'react-router';
 export default function RepairApplication() {
+    let history = useHistory()
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [contact, setContact] = useState('');
@@ -21,7 +24,12 @@ export default function RepairApplication() {
             .then(() => {
                 console.log('succesfully Insert')
             });
-        alert('thank you for your new Service request')
+        Swal.fire(
+            'thank you for your new Service request',
+            'You have request new repairing',
+            'success'
+        )
+        history.push('/home')
     }
     return (
         <div>

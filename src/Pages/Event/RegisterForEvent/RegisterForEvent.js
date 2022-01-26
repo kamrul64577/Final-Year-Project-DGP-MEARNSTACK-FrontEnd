@@ -4,7 +4,10 @@ import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Footer from '../../Shared/Footer/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const RegisterForEvent = () => {
+    const notify = () => toast("Registration processed successfully");
     const { eventId } = useParams();
     const [events, setEvent] = useState({});
     const { user } = useAuth();
@@ -47,7 +50,7 @@ const RegisterForEvent = () => {
             .then(result => {
                 console.log(result)
                 if (result.insertedId) {
-                    alert('Registration processed successfully');
+                    notify();
                     // reset();
                 }
             })
@@ -60,6 +63,7 @@ const RegisterForEvent = () => {
 
     return (
         <div>
+            <ToastContainer/>
             <Navigation></Navigation>
             <div className="place-order py-5 container">
                 <div className="border p-3">
@@ -69,6 +73,8 @@ const RegisterForEvent = () => {
                     <p className="">ইভেন্টের বিবরণ : {events.eventDescription}</p>
                     <h5 className="my-3 p-3 bg-light">আবেদন ফি:{events.eventFee}টাকা</h5>
                     <h6>স্থান: {events.eventPlace}</h6>
+                    <h4 className="text-dark bg-light p-3">বিজয়ী পুরুষ্কার :{events.firstPrize}</h4>
+                    <h5 className="text-dark bg-light p-3">রানারআপ পুরুস্কার : {events.secondPrize}</h5>
                     {/* <h5>eventFee: ${event.eventFee}</h5> */}
                 </div>
                 <div className="border p-3 place-order-form">

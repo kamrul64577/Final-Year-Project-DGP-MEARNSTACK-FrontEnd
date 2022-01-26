@@ -28,6 +28,8 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
+
+
 import DashboardHome from '../DashboardHome/DashboardHome';
 import AddNewService from '../Services/AddNewService/AddNewService';
 import AllServices from '../../AllServices/AllServices';
@@ -47,6 +49,11 @@ import ViewBirthInfo from '../ViewBirthDeathInfo/ViewBirthInfo/ViewBirthInfo';
 import DeathRegistration from '../BirthDeathRegistration/DeathRegistration/DeathRegistration';
 import ViewDeathInfo from '../ViewBirthDeathInfo/ViewDeathInfo/ViewDeathInfo';
 import ApplicationOfEvent from '../Event/ApplicationOfEvent/ApplicationOfEvent';
+import AddReliefSchedule from '../ManageReliefSchedule/AddReliefSchedule/AddReliefSchedule';
+import ViewReliefSchedule from '../ManageReliefSchedule/ViewReliefSchedule/ViewReliefSchedule';
+import ReliefSchedule from '../ReliefSchedule/ReliefSchedule';
+
+
 const drawerWidth = 260;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -160,6 +167,7 @@ export default function Dashboard() {
                         userType === '' && <Box>
                             <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/requestForBooking`}>বিয়ের হল বুক করুন </Link> <br />
                             <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/myBooking`}>আমার বুকিং তথ্য</Link> <br />
+                            <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/relief`}>ত্রাণ সমূহ </Link> <br />
                             <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/birthRegistration`}>জন্ম নিবন্ধন করুন</Link> <br />
                             <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/deathRegistration`}>মৃত্যু নিবন্ধন করুন</Link> <br />
                         </Box>
@@ -186,6 +194,8 @@ export default function Dashboard() {
                             <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/viewEvent`}>ইভেন্টসমূহ</Link> <br />
                             <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/addEvent`}>নতুন ইভেন্ট যুক্ত করুন </Link> <br />
                             <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/viewEventRegistration`}>আবেদনকৃত ইভেন্ট</Link> <br />
+                            <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/addRelief`}>ত্রাণ এড করুন </Link> <br />
+                            <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/viewRelief`}>ত্রাণ সমূহ  </Link> <br />
                             <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px', marginBottom: '20px' }} to={`${url}/viewBooking`}>সকল বুকিং</Link> <br />
                         </Box>
                     }
@@ -208,8 +218,10 @@ export default function Dashboard() {
 
                         <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/viewEventRegistration`}>আবেদনকৃত ইভেন্ট</Link> <br />
                         <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/addEvent`}>নতুন ইভেন্ট যুক্ত করুন </Link> <br/>
+                        <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/addRelief`}>ত্রাণ এড করুন </Link> <br />
+                        <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px' }} to={`${url}/viewRelief`}>ত্রাণ সমূহ  </Link> <br />
                         <Link style={{ textDecoration: 'none', marginLeft: '15px', color: '#070903', marginTop: '10px', display: 'inline-block', fontSize: '18px', backgroundColor: '#DAD3C6', padding: '7px', borderRadius: '10px', marginBottom:'20px' }} to={`${url}/viewBooking`}>সকল বুকিং</Link> <br/>
-                        {/* <Link style={{ textDecoration: 'none', marginLeft: '15px' }} to={`${url}/requestedRepairing`}>Requested Repairing</Link> <br/> */}
+                        
 
 
                     </Box>}
@@ -223,74 +235,87 @@ export default function Dashboard() {
                 <Route exact path={`${path}`}>
                     <DashboardHome></DashboardHome>
                 </Route >
-                <Route path={`${path}/makeAdmin`}>
+                <Route exact path={`${path}/makeAdmin`}>
                     <MakeAdmin></MakeAdmin>
                 </Route >
-                <Route path={`${path}/makeServiceOfficer`}>
+                <Route exact path={`${path}/makeServiceOfficer`}>
                     <MakeServiceOfficer></MakeServiceOfficer>
                 </Route >
-                <Route path={`${path}/makeEventCoordinator`}>
+                <Route exact path={`${path}/makeEventCoordinator`}>
                     <MakeEventCoordinator></MakeEventCoordinator>
                 </Route >
-                <Route path={`${path}/makeLocalJournalist`}>
+                <Route exact path={`${path}/makeLocalJournalist`}>
                     <MakeLocalJournalist></MakeLocalJournalist>
                 </Route >
-                <Route path={`${path}/addNewService`}>
+                <Route exact path={`${path}/addNewService`}>
                     <AddNewService></AddNewService>
                 </Route >
-                <Route path={`${path}/viewServices`}>
+                <Route exact path={`${path}/viewServices`}>
                     <ViewServices></ViewServices>
                 </Route >
-                <Route path={`${path}/updateService/:serviceId`}>
+                <Route exact path={`${path}/updateService/:serviceId`}>
                     <UpdateService></UpdateService>
                 </Route >
-                <Route path={`${path}/requestedServices`}>
+                <Route exact path={`${path}/requestedServices`}>
                     <RequestServices></RequestServices>
                 </Route >
-                <Route path={`${path}/requestedRepairing`}>
+                <Route exact path={`${path}/requestedRepairing`}>
                     <RequestRepairing></RequestRepairing>
                 </Route >
-                <Route path={`${path}/birthRegistration`}>
+                <Route exact path={`${path}/birthRegistration`}>
                     <BirthRegistration></BirthRegistration>
                 </Route >
-                <Route path={`${path}/deathRegistration`}>
+                <Route exact path={`${path}/deathRegistration`}>
                     <DeathRegistration></DeathRegistration>
                 </Route >
-                <Route path={`${path}/viewBirthInfo`}>
+                <Route exact path={`${path}/viewBirthInfo`}>
                     <ViewBirthInfo></ViewBirthInfo>
                 </Route >
-                <Route path={`${path}/viewDeathInfo`}>
+                <Route exact path={`${path}/viewDeathInfo`}>
                     <ViewDeathInfo></ViewDeathInfo>
                 </Route >
-                <Route path={`${path}/addNews`}>
+                <Route exact path={`${path}/addNews`}>
                     <AddNews></AddNews>
                 </Route >
-                <Route path={`${path}/viewNews`}>
+                <Route exact path={`${path}/viewNews`}>
                     <ViewNews></ViewNews>
                 </Route >
-                <Route path={`${path}/updateNews/:newsId`}>
+                <Route exact path={`${path}/updateNews/:newsId`}>
                     <UpdateNews></UpdateNews>
                 </Route >
 
-                <Route path={`${path}/addEvent`}>
+                <Route exact path={`${path}/addEvent`}>
                     <AddEvent></AddEvent>
                 </Route >
-                <Route path={`${path}/viewEvent`}>
+                <Route exact path={`${path}/viewEvent`}>
                     <ViewEvent></ViewEvent>
                 </Route >
-                <Route path={`${path}/viewEventRegistration`}>
+                <Route exact path={`${path}/viewEventRegistration`}>
                     <ApplicationOfEvent></ApplicationOfEvent>
                 </Route >
 
-                <Route path={`${path}/requestForBooking`}>
+                <Route exact path={`${path}/requestForBooking`}>
                     <RequestForBooking></RequestForBooking>
                 </Route >
-                <Route path={`${path}/viewBooking`}>
+                <Route exact path={`${path}/viewBooking`}>
                     <ViewBooking></ViewBooking>
                 </Route >
-                <Route path={`${path}/myBooking`}>
+                <Route exact path={`${path}/myBooking`}>
                     <MyBooking></MyBooking>
                 </Route >
+
+                <Route  path={`${path}/addRelief`}>
+                    <AddReliefSchedule></AddReliefSchedule>
+                </Route >
+                <Route path={`${path}/viewRelief`}>
+                    <ViewReliefSchedule></ViewReliefSchedule>
+                </Route >
+
+                <Route  path={`${path}/relief`}>
+                    <ReliefSchedule></ReliefSchedule>
+                </Route >
+
+                
 
 
             </Main>

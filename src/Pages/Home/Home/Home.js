@@ -68,13 +68,10 @@ export default function Home() {
 
             {/* News Section  */}
             <section>
-                <Container>
-                    <div className="text-center pt-5 w-25">
-                        <h1 className="news-header">আপডেট খবর পেতে আমাদের সাথে থাকুন </h1>
-                        <p className="news-subHeader">সাম্প্রতিক খবর </p>
-                    </div>
-                    <div className="news-body mb-5">
-                        <CardGroup className="gap-5">
+                <div className="container">
+                    
+                    {/* <div className="news-body mb-5"> */}
+                        {/* <CardGroup className="gap-5">
                             {
                                 news.map(ns => 
                                     <Card className="news-card">
@@ -90,9 +87,39 @@ export default function Home() {
                                     )
                             }
                            
-                        </CardGroup>
+                        </CardGroup> */}
+
+                        <div className="row mb-5">
+                            <div className="text-center pt-5 w-100">
+                                <h1 className="news-header">আপডেট খবর পেতে আমাদের সাথে থাকুন </h1>
+                                <p className="news-subHeader">সাম্প্রতিক খবর </p>
+                            </div>
+                               
+                                    {
+                                        news.map(ns =>
+                                            <div className="col-lg-6  h-50">
+                                            <div className="card-group ">
+                                            <div className="news-card card">
+                                                <img className="card-img" variant="top" src={ns.image} />
+                                                        {/* <img src={`data:image/jpeg;base64,${ns.profilePic}`} alt="" /> */}
+                                                <div className="card-body">
+                                                            <div className="card-title"><h4>{ns.title}</h4></div>
+                                                    <p className="card-text">
+                                                        {ns.description.slice(1, 120)} .......
+                                                    </p>
+                                                    <Link to={`/newsDetails/${ns._id}`} className="read-more">আরো পড়ুন  </Link>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        )
+                                    }
+                               
+                            
+
+                        </div>
                     </div>
-                </Container>
+                {/* </div> */}
             </section>
             <Footer></Footer>
         </>

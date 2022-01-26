@@ -4,6 +4,7 @@ import './ContactUs.css'
 import emailjs from "emailjs-com";
 import Navigation from '../Shared/Navigation/Navigation';
 import Footer from '../Shared/Footer/Footer';
+import Swal from 'sweetalert2';
 
 export default function ContactUs() {
     function sendEmail(e) {
@@ -19,7 +20,11 @@ export default function ContactUs() {
     }
 
     const onButtonClickHandler = () => {
-        window.alert('Thank You For Contact With Us')
+        Swal.fire(
+            'Thank You For Contact With Us',
+            'We will contact with you very soon',
+            'success'
+        )
     };
     return (
         <>

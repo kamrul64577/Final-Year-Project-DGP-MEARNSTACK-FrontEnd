@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import Swal from 'sweetalert2'
 const AddNewService = () => {
     const [name, setName] = useState('');
     const [categories, setCategories] = useState('');
     const [description, setDescription] = useState('');
+    const [regFee, setRegFee] = useState('');
     
     const handleAddService = () => {
         Axios.post('http://localhost:5000/services', {
             name: name,
             categories: categories,
-            description:description
+            description:description,
+            regFee:regFee
         })
             .then(() => {
                 console.log('succesfully Insert')
             });
-        alert('thank you for Adding new Service ')
+        Swal.fire(
+            'Successfully Added',
+            'You clicked the Add button!',
+            'success'
+        )
     }
 
     return (
@@ -25,7 +32,7 @@ const AddNewService = () => {
                         <div className="form-group col-lg-12">
                             <input id="name" className="input-text" type="text" name="name" placeholder="সার্ভিসের নাম " onChange={(e) => {
                                 setName(e.target.value)
-                            }} />
+                            }} required/>
                             {/* <label for="name" className="label">name</label> */}
                         </div>
                         
@@ -33,15 +40,21 @@ const AddNewService = () => {
                         <div className="form-group col-lg-12">
                             <input id="Request" className="input-text" type="text" name="type" placeholder="কি ধরণের সার্ভিস ?" onChange={(e) => {
                                 setCategories(e.target.value)
-                            }} />
+                            }} required/>
                             {/* <label for="Request" className="label">Service type</label> */}
                         </div>
 
                         <div className="form-group col-lg-12">
                             <textarea id="message" className="input-text" type="text" name="whyNeed" placeholder="সার্ভিসের  বিবরণ ? " onChange={(e) => {
                                 setDescription(e.target.value)
-                            }}></textarea>
+                            }} required></textarea>
                             {/* <label for="message" className="label">Why You Need This Service?</label> */}
+                        </div>
+                        <div className="form-group col-lg-12">
+                            <input  className="input-text" type="text" name="type" placeholder="রেজিস্ট্রেশন ফি " onChange={(e) => {
+                                setRegFee(e.target.value)
+                            }}required />
+                            {/* <label for="Request" className="label">Service type</label> */}
                         </div>
                         <div className="form-group col-lg-12">
                             <button onClick={handleAddService} className="submit-btn">এড করুন</button>

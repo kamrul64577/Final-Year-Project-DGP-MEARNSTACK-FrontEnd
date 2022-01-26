@@ -120,11 +120,20 @@ const useFirebase = () => {
             .then()
     }
   
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/users/${user.email}`)
+    //         .then(res => res.json())
+    //         .then(data => setUserType(data))
+    // },[user.email])
     useEffect(() => {
         fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
-            .then(data => setUserType(data))
-    },[user.email])
+            .then(data => {
+                console.log(data)
+                setUserType(data)
+            })
+            .catch((e) => { })
+    }, [user.email])
 
     // useEffect(() => {
     //     fetch(`http://localhost:5000/users/${user.email}`)

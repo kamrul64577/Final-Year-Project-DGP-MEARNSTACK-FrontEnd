@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Footer from '../../Shared/Footer/Footer';
+import Swal from 'sweetalert2';
 const RegisterForEvent = () => {
     const [booking, setBooking] = useState({});
     const { user } = useAuth();
@@ -43,7 +44,11 @@ const RegisterForEvent = () => {
             .then(result => {
                 console.log(result)
                 if (result.insertedId) {
-                    alert('Successfully Requested Booking');
+                    Swal.fire(
+                        'Thank You For Booking',
+                        'Your status is pending',
+                        'success'
+                    )
                     // reset();
                 }
             })

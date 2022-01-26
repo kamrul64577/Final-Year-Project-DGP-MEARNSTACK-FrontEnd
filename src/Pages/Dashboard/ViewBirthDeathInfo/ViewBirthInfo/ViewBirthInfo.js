@@ -1,6 +1,7 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const ViewBirthInfo = () => {
     const [birth, setBirth] = useState([]);
@@ -21,7 +22,11 @@ console.log(birth);
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('succesfully deleted');
+                        Swal.fire(
+                            'Successfully Deleted',
+                            'Your File has been Deleted',
+                            'success'
+                        )
                         const remainingbirth = birth.filter(birth => birth._id !== id);
                         setBirth(remainingbirth);
                     }
