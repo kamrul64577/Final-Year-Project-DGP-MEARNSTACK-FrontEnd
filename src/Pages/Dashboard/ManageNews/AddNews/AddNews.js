@@ -35,7 +35,7 @@ const AddNews = () => {
         formData.append("description", description);
         // formData.append("profilepic", profilepic);
 
-        fetch("http://localhost:5000/insertNews", {
+        fetch("https://desolate-beyond-74023.herokuapp.com/insertNews", {
             method: "POST",
             body: formData,
         })

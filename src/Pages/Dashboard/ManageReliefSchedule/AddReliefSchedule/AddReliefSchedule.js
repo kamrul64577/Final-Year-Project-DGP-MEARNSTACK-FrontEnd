@@ -27,7 +27,7 @@ const AddReliefSchedule = () => {
             reliefName: relief, date: date, address: address
         }
 
-        fetch(`http://localhost:5000/relief`, {
+        fetch(`https://desolate-beyond-74023.herokuapp.com/relief`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

@@ -7,7 +7,7 @@ const ReliefSchedule = () => {
     const [relief, setRelief] = useState([]);
     const notify = () => toast("Delete data successfully");
     useEffect(() => {
-        fetch(`http://localhost:5000/relief`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/relief`)
             .then(res => res.json())
             .then(data => setRelief(data))
     }, [relief]);

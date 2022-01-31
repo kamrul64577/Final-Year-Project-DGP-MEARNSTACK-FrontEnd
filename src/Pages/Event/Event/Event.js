@@ -8,7 +8,7 @@ import Slide from 'react-reveal/Slide';
 const Event = () => {
     const [events, setEvent] = useState([]);
     useEffect(() => {
-        Axios.get("http://localhost:5000/event")
+        Axios.get("https://desolate-beyond-74023.herokuapp.com/event")
             .then(data => {
                 setEvent(data.data)
             })

@@ -6,7 +6,7 @@ const MyBooking = () => {
     const {user} = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/booking`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/booking`)
             .then(res => res.json())
             .then(data => setBooking(data))
     }, [booking]);

@@ -6,7 +6,7 @@ const ViewServices = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/services`)
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
@@ -15,7 +15,7 @@ const ViewServices = () => {
         const proceed = window.confirm('Are you sure want to delete');
         
         if (proceed) {
-            const url = `http://localhost:5000/services/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/services/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

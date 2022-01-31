@@ -33,7 +33,7 @@ const RegisterForEvent = () => {
         const newRegister = {
             hallName: hall, date: date, name: name, email: email, address: address, mobile: mobile, status: 'পেন্ডিং'}
 
-        fetch(`http://localhost:5000/booking`, {
+        fetch(`https://desolate-beyond-74023.herokuapp.com/booking`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

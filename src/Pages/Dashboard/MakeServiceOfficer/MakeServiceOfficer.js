@@ -12,7 +12,7 @@ const MakeServiceOfficer = () => {
     const handleAdminSubmit = e => {
         const user = { email };
 
-        fetch('http://localhost:5000/users/serviceOfficer', {
+        fetch('https://desolate-beyond-74023.herokuapp.com/users/serviceOfficer', {
             method: 'PUT',
             headers: {
 

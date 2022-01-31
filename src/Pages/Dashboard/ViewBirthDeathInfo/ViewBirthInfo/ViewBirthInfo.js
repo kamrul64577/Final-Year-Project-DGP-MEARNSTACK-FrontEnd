@@ -7,7 +7,7 @@ const ViewBirthInfo = () => {
     const [birth, setBirth] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/birth`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/birth`)
             .then(res => res.json())
             .then(data => setBirth(data))
     }, []);
@@ -15,7 +15,7 @@ console.log(birth);
     const handleDeleteBirth = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/birth/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/birth/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

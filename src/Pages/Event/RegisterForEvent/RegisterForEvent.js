@@ -23,7 +23,7 @@ const RegisterForEvent = () => {
     const trxIdRef = useRef('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/event/${eventId}`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/event/${eventId}`)
             .then(res => res.json())
             .then(data => setEvent(data.event))
     }, []);
@@ -39,7 +39,7 @@ const RegisterForEvent = () => {
 
         const newRegister = {eventName: eventName, trxId: trxId, eventFee: eventFee, name: name, email: email, address: address, mobile: mobile }
 
-        fetch(`http://localhost:5000/registerEvent`, {
+        fetch(`https://desolate-beyond-74023.herokuapp.com/registerEvent`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

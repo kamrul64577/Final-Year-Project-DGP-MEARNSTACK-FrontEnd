@@ -12,7 +12,7 @@ export default function ApplyService() {
     const [whyNeed, setWhyNeed] = useState('');
 
     const requestService = () => {
-        Axios.post('http://localhost:5000/insertRequestService', {
+        Axios.post('https://desolate-beyond-74023.herokuapp.com/insertRequestService', {
             name: name,
             email: email,
             contact: contact,

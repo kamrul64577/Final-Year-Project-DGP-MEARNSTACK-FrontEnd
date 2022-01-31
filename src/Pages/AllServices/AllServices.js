@@ -11,7 +11,7 @@ export default function AllServices() {
    
 
     useEffect(() => {
-        Axios.get("http://localhost:5000/services")
+        Axios.get("https://desolate-beyond-74023.herokuapp.com/services")
             .then(response => {
                 setServiceList(response.data)
             })

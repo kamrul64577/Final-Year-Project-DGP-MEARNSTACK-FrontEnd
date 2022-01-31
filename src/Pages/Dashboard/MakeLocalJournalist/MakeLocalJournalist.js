@@ -12,7 +12,7 @@ const MakeLocalJournalist = () => {
     const handleJournalistSubmit = e => {
         const user = { email };
 
-        fetch('http://localhost:5000/users/localJournalist', {
+        fetch('https://desolate-beyond-74023.herokuapp.com/users/localJournalist', {
             method: 'PUT',
             headers: {
 

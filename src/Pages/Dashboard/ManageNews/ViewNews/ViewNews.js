@@ -8,7 +8,7 @@ const ViewNews = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/News`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/News`)
             .then(res => res.json())
             .then(data => setNews(data))
     }, []);
@@ -16,7 +16,7 @@ const ViewNews = () => {
     const handleDeleteNews = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/news/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/news/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

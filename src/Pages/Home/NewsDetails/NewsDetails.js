@@ -8,7 +8,7 @@ const NewsDetails = () => {
     const [news, setNews] = useState({});
 
     useEffect(() => {
-        Axios.get(`http://localhost:5000/news/${newsId}`)
+        Axios.get(`https://desolate-beyond-74023.herokuapp.com/news/${newsId}`)
             .then(data => {
                 setNews(data.data)
             })

@@ -5,7 +5,7 @@ const RequestRepairing = () => {
     const [requestRepairing, setRequestedRepairing] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/requestRepairing`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/requestRepairing`)
             .then(res => res.json())
             .then(data => setRequestedRepairing(data))
     }, []);
@@ -15,7 +15,7 @@ const RequestRepairing = () => {
     const handleDeleteRequestRepairing = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/requestRepairing/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/requestRepairing/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

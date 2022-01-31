@@ -16,7 +16,7 @@ const AddEvent = () => {
     }
 
     const handleAddEvent = e=> {
-        Axios.post('http://localhost:5000/event', {
+        Axios.post('https://desolate-beyond-74023.herokuapp.com/event', {
             event
         })
             .then(() => {

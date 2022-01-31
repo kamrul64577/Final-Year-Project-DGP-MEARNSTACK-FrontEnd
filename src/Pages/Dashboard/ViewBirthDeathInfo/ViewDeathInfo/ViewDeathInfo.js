@@ -7,7 +7,7 @@ const ViewDeathInfo = () => {
     const [death, setDeath] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/death`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/death`)
             .then(res => res.json())
             .then(data => setDeath(data))
     }, []);
@@ -15,7 +15,7 @@ const ViewDeathInfo = () => {
     const handleDeleteDeath = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/death/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/death/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

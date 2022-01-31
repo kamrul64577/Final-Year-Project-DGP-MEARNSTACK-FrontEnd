@@ -9,7 +9,7 @@ const ServiceDetails = () => {
     const [service, setService] = useState({});
     const {user} = useAuth();
     useEffect(() => {
-        Axios.get(`http://localhost:5000/services/${serviceId}`)
+        Axios.get(`https://desolate-beyond-74023.herokuapp.com/services/${serviceId}`)
             .then(data => {
                 setService(data.data)
             })
@@ -26,7 +26,7 @@ console.log(user.displayName)
             cus_email: user?.email
 
         }
-        fetch(`http://localhost:5000/init`, {
+        fetch(`https://desolate-beyond-74023.herokuapp.com/init`, {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

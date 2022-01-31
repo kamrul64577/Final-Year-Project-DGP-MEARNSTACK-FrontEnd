@@ -18,7 +18,7 @@ import Axios  from 'axios'
 export default function Home() {
     const [news, setNews] = useState([]);
     useEffect(() => {
-        Axios.get("http://localhost:5000/news")
+        Axios.get("https://desolate-beyond-74023.herokuapp.com/news")
             .then(data => {
                 setNews(data.data)
             })

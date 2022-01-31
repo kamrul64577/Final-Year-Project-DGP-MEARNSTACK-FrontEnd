@@ -10,7 +10,7 @@ const ApplicationOfEvent = () => {
         
     })
     useEffect(() => {
-        fetch(`http://localhost:5000/registerEvent`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/registerEvent`)
             .then(res => res.json())
             .then(data => setEvent(data))
     }, []);
@@ -18,7 +18,7 @@ const ApplicationOfEvent = () => {
     const handleDeleteEvent = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/registerEvent/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/registerEvent/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

@@ -12,7 +12,7 @@ const MakeEventCoordinator = () => {
     const handleAdminSubmit = e => {
         const user = { email };
 
-        fetch('http://localhost:5000/users/eventCoordinator', {
+        fetch('https://desolate-beyond-74023.herokuapp.com/users/eventCoordinator', {
             method: 'PUT',
             headers: {
 

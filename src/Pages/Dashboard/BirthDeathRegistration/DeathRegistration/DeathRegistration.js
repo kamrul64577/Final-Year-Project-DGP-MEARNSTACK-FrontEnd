@@ -20,7 +20,7 @@ const DeathRegistration = () => {
     }
 
     const handleAddDeath = e => {
-        Axios.post('http://localhost:5000/death', {
+        Axios.post('https://desolate-beyond-74023.herokuapp.com/death', {
             deathInfo,
             value
 

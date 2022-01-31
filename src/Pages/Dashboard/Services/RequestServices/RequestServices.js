@@ -5,7 +5,7 @@ const RequestServices = () => {
     const [requestServices, setRequestedService] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/requestServices`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/requestServices`)
         .then(res => res.json())
         .then(data => setRequestedService(data))
     }, [])
@@ -15,7 +15,7 @@ const RequestServices = () => {
     const handleDeleteRequestService = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/requestServices/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/requestServices/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

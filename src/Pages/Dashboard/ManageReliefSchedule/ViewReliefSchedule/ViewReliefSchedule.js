@@ -7,7 +7,7 @@ const ViewReliefSchedule = () => {
     const [relief, setRelief] = useState([]);
     const notify = () => toast("Delete data successfully");
     useEffect(() => {
-        fetch(`http://localhost:5000/relief`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/relief`)
             .then(res => res.json())
             .then(data => setRelief(data))
     }, [relief]);
@@ -17,7 +17,7 @@ const ViewReliefSchedule = () => {
     const handleDeleteRelief = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/relief/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/relief/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

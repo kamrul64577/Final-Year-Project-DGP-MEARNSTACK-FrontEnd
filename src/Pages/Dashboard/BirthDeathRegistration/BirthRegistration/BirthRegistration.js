@@ -20,7 +20,7 @@ const BirthRegistration = () => {
     }
 
     const handleAddBirth = e => {
-        Axios.post('http://localhost:5000/birth', {
+        Axios.post('https://desolate-beyond-74023.herokuapp.com/birth', {
             birthInfo,
             value
 

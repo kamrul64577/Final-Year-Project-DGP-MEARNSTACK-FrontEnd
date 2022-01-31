@@ -7,7 +7,7 @@ const ViewBooking = () => {
     const [booking, setBooking] = useState([]);
     const notify = () => toast("Booking Status Changed");
     useEffect(() => {
-        fetch(`http://localhost:5000/booking`)
+        fetch(`https://desolate-beyond-74023.herokuapp.com/booking`)
             .then(res => res.json())
             .then(data => setBooking(data))
     }, [booking]);
@@ -20,7 +20,7 @@ const ViewBooking = () => {
         }
         modifiedStatus.push(booking);
         const modifiedStatusProducts = { id, updateStatus };
-        fetch('http://localhost:5000/booking', {
+        fetch('https://desolate-beyond-74023.herokuapp.com/booking', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -38,7 +38,7 @@ const ViewBooking = () => {
     const handleDeleteBooking = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/booking/${id}`;
+            const url = `https://desolate-beyond-74023.herokuapp.com/booking/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

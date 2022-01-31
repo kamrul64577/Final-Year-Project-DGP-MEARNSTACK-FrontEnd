@@ -10,7 +10,7 @@ const Success = () => {
     const { id } = useParams();
     const [service, setService] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders/${id}`)
+        axios.get(`https://desolate-beyond-74023.herokuapp.com/orders/${id}`)
             .then(res => setService(res.data))
     }, [id])
     const validatePayment = () => {
@@ -18,7 +18,7 @@ const Success = () => {
             tran_id: id,
             val_id: service?.val_id
         }
-        axios.post(`http://localhost:5000/validate`, data)
+        axios.post(`https://desolate-beyond-74023.herokuapp.com/validate`, data)
             .then(res => {
                 if (res.data) {
                     Swal.fire(

@@ -10,7 +10,7 @@ const UpdateNews = () => {
     const [news, setNews] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/news/${newsId}`;
+        const url = `https://desolate-beyond-74023.herokuapp.com/news/${newsId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setNews(data))
@@ -37,7 +37,7 @@ const UpdateNews = () => {
     }
 
     const handleUpdateNews = e => {
-        const url = `http://localhost:5000/news/${newsId}`;
+        const url = `https://desolate-beyond-74023.herokuapp.com/news/${newsId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -61,7 +61,6 @@ const UpdateNews = () => {
         <div>
             <ToastContainer/>
             <h1> নিউজ  আপডেট করুন </h1>
-            <h3></h3>
             <form onSubmit={handleUpdateNews}>
                 {/* <input type="text" onChange={handletitleChange} value={services.title || ''} />
                 <input type="text" onChange={handlePriceChange} value={services.price || ''} />

@@ -8,7 +8,7 @@ const AddNewService = () => {
     const [regFee, setRegFee] = useState('');
     
     const handleAddService = () => {
-        Axios.post('http://localhost:5000/services', {
+        Axios.post('https://desolate-beyond-74023.herokuapp.com/services', {
             name: name,
             categories: categories,
             description:description,

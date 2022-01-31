@@ -8,7 +8,7 @@ const UpdateService = () => {
     const [services, setServices] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/services/${serviceId}`;
+        const url = `https://desolate-beyond-74023.herokuapp.com/services/${serviceId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setServices(data))
@@ -35,7 +35,7 @@ const UpdateService = () => {
     }
 
     const handleUpdateService = e => {
-        const url = `http://localhost:5000/services/${serviceId}`;
+        const url = `https://desolate-beyond-74023.herokuapp.com/services/${serviceId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
