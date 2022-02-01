@@ -18,10 +18,9 @@ import Axios  from 'axios'
 export default function Home() {
     const [news, setNews] = useState([]);
     useEffect(() => {
-        Axios.get("https://desolate-beyond-74023.herokuapp.com/news")
-            .then(data => {
-                setNews(data.data)
-            })
+        fetch("https://desolate-beyond-74023.herokuapp.com/news")
+        .then(res => res.json())
+        .then(data => setNews(data))
     }, [])
 
 
@@ -103,7 +102,7 @@ export default function Home() {
                                     <div className="col-lg-6  h-50">
                                         <div className="card-group ">
                                             <div className="news-card card">
-                                                <img className="card-img" variant="top" src={ns.image} />
+                                                <img className="card-img" variant="top" src={ns.image} alt="images" />
                                                 {/* <img src={`data:image/jpeg;base64,${ns.profilePic}`} alt="" /> */}
                                                 <div className="card-body">
                                                     <div className="card-title"><h4>{ns.title}</h4></div>
